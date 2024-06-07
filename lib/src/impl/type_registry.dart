@@ -31,7 +31,7 @@ class _TypeRegistry {
           'Type is not registered. Did you forget to register it?',
         );
       }
-      if (json is Map<String, dynamic>) {
+      if (json is Map<String, dynamic> || json is List) {
         value = handler.fromJson(json);
       } else {
         throw ArgumentError('Type mismatch. Expected Map<String,dynamic> '
@@ -72,7 +72,7 @@ class _TypeRegistry {
   }
 }
 
-T? _noop<T>(Map<String, dynamic> json) {
+T? _noop<T>(dynamic json) {
   throw UnimplementedError();
 }
 
@@ -85,7 +85,7 @@ class _TypeHandler<T> {
 
   final int? typeId;
 
-  final T? Function(Map<String, dynamic> json) fromJson;
+  final T? Function(dynamic json) fromJson;
 
   bool handlesValue(dynamic value) {
     return value is T;
