@@ -33,6 +33,8 @@ class _TypeRegistry {
       }
       if (json is Map<String, dynamic>) {
         value = handler.fromJson(json);
+      } else if (json is List<Map<String, dynamic>>) {
+        value = json.map(handler.fromJson).toList();
       } else {
         throw ArgumentError('Type mismatch. Expected Map<String,dynamic> '
             'but got ${json.runtimeType}.');
