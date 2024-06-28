@@ -44,7 +44,7 @@ To kickstart the journey add `hive`, `isar_flutter_libs` and `path_provider` to 
 
 ```yaml
 dependencies:
-  hive: ^4.0.0
+  hive: ^4.0.0-dev.2
   isar_flutter_libs: ^4.0.0-dev.13
   path_provider: ^2.1.0
 ```
