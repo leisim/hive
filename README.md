@@ -59,7 +59,7 @@ Hive needs a place to call home. Using `path_provider` we can find a valid direc
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final dir = await getApplicationDocumentsDirectory();
-  Hive.defaultDirectory = dir.path;
+  Hive.init(dir.path);
 
   // ...
 }
