@@ -38,8 +38,9 @@ class Hive {
   static void registerAdapter<T>(
     String typeName,
     T? Function(dynamic json) fromJson,
+    Type? type,
   ) {
-    _typeRegistry.register<T>(Isar.fastHash(typeName), fromJson);
+    _typeRegistry.register<T>(Isar.fastHash(typeName), fromJson, type);
   }
 
   /// Get or open the box with [name] in the given [directory]. If no directory
